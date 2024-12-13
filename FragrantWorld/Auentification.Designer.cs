@@ -76,6 +76,7 @@
             SignInGuest.TabStop = true;
             SignInGuest.Text = "Продолжить в качестве гостя";
             SignInGuest.VisitedLinkColor = Color.Gray;
+            SignInGuest.LinkClicked += SignInGuest_LinkClicked;
             // 
             // FW_Autorization
             // 

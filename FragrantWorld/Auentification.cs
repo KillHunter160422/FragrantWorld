@@ -2,6 +2,7 @@ namespace FragrantWorld
 {
     public partial class FW_Autorization : Form
     {
+        private string userRole;
         public FW_Autorization()
         {
             InitializeComponent();
@@ -9,6 +10,10 @@ namespace FragrantWorld
 
         private void Sign_Click(object sender, EventArgs e)
         {
+            SignForm sign = new();
+            sign.Show();
+            this.Hide();
+
         }
 
         private void FW_Autorization_Load(object sender, EventArgs e)
@@ -20,9 +25,18 @@ namespace FragrantWorld
 
         private void Registration_Click(object sender, EventArgs e)
         {
-            RegistrationForm registration = new RegistrationForm();
+            RegistrationForm registration = new();
             registration.Show();
             this.Hide();
+        }
+
+        private void SignInGuest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FragrantWorldShop shop = new FragrantWorldShop();
+            shop.Show();
+            this.Hide();
+
+            shop.SetUserRole("Guest");
         }
     }
 }

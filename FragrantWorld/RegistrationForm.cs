@@ -82,25 +82,25 @@ namespace FragrantWorld
 
             bool isValid = true; // добавляем переменную для проверки на правильность ввода пользователем данных
 
-            if (!Regex.IsMatch(name, @"^[А-ЯЁA-Z][а-яёa-zA-Z]{1,}$"))
+            if (!Regex.IsMatch(name, @"^[А-ЯЁA-Z][а-яёa-zA-Z]{1, 32}$"))
             {
                 MessageBox.Show("Неверное имя. Должно начинаться с заглавной буквы и содержать только русские или только английские буквы.");
                 isValid = false;
             }
 
-            if (!Regex.IsMatch(surname, @"^[А-ЯЁA-Z][а-яёa-zA-Z]{1,}$"))
+            if (!Regex.IsMatch(surname, @"^[А-ЯЁA-Z][а-яёa-zA-Z]{1, 32}$"))
             {
                 MessageBox.Show("Неверная фамилия. Должно начинаться с заглавной буквы и содержать только русские или английские буквы.");
                 isValid = false;
             }
 
-            if (!Regex.IsMatch(patronymic, @"^[А-ЯЁA-Z]?[а-яёa-zA-Z\-]{0,}$"))
+            if (!Regex.IsMatch(patronymic, @"^[А-ЯЁA-Z]?[а-яёa-zA-Z\-]{0, 32}$"))
             {
                 MessageBox.Show("Неверное отчество. Должно начинаться с заглавной буквы и содержать только русские или английские буквы.");
                 isValid = false;
             }
 
-            if (!Regex.IsMatch(login, @"^[a-zA-Z0-9]+$"))
+            if (!Regex.IsMatch(login, @"^[a-zA-Z0-9]{1, 32}+$"))
             {
                 MessageBox.Show("Неверный логин. Должен содержать только английские буквы и цифры.");
                 isValid = false;
@@ -108,7 +108,7 @@ namespace FragrantWorld
 
             if (password == rePassword)
             {
-                if (!Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[!#&])(?=.*\d)[A-Za-z\d!#&]{8,}$"))
+                if (!Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*[!#&])(?=.*\d)[A-Za-z\d!#&]{8,28}$"))
                 {
                     MessageBox.Show("Неверный пароль. Должен содержать минимум 8 символов, включая хотя бы одну заглавную букву, один спецсимвол (!, #, &) и одну цифру.");
                     isValid = false;
